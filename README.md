@@ -7,7 +7,7 @@
 
 ## Overview
 
-This repository packages a Codex skill for managing PPIO GPU container instances through the official PPIO GPU OpenAPI.
+This repository provides a Python CLI tool for managing PPIO GPU container instances through the official PPIO GPU OpenAPI. It can be used directly from the command line or invoked by AI assistants such as Claude Code and Codex.
 
 The repository is designed around a compact operational workflow:
 
@@ -20,43 +20,50 @@ The repository is designed around a compact operational workflow:
 
 - `skills/ppio-gpu-manager/`: the skill package, including metadata, references, and automation scripts.
 
-## Quick Start
+## Getting Started
 
-1. Create a local environment file from the sample:
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Nishikori-Yui/ppio-gpu-cloud-skills.git
+cd ppio-gpu-cloud-skills
+```
+
+### 2. Configure API Key
+
+Create `.env` from the example file:
 
 ```bash
 cp .env.example .env
 ```
 
-2. Fill in your API key in `.env`, or export it directly:
+Edit `.env` and set your API key, or export it directly:
 
 ```bash
 export PPIO_API_KEY="your-api-key"
 ```
 
-3. Inspect clusters:
+### 3. Run Commands
 
 ```bash
+# List available clusters
 python3 skills/ppio-gpu-manager/scripts/ppio_gpu.py clusters
-```
 
-4. Inspect GPU products:
-
-```bash
+# List GPU products
 python3 skills/ppio-gpu-manager/scripts/ppio_gpu.py gpu-products
-```
 
-5. List instances:
-
-```bash
+# List instances
 python3 skills/ppio-gpu-manager/scripts/ppio_gpu.py instances
+
+# Inspect a specific instance
+python3 skills/ppio-gpu-manager/scripts/ppio_gpu.py instance --instance-id "<instance-id>"
 ```
 
-The CLI loads a local `.env` file automatically when present and does not require a manual `source` step. If multiple `.env` files exist, the skill-local `.env` is preferred before walking upward from the current working directory.
+The CLI automatically loads `.env` files from the skill directory or parent directories. If multiple `.env` files exist, the skill-local one takes precedence.
 
 ## Resources
 
-- [PPIO GPU Cloud Reference](https://ppio.com/docs/gpus/reference-start)
+- [GPU Container API Reference](https://ppio.com/docs/gpus/reference-start)
 
 ## License
 
