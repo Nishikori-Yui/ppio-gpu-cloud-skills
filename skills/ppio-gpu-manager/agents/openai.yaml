@@ -1,0 +1,4 @@
+interface:
+  display_name: "PPIO GPU Manager"
+  short_description: "Manage PPIO GPU instances and VPCs"
+  default_prompt: "Use $ppio-gpu-manager to inspect, create, and control PPIO GPU instances on PPIO."
